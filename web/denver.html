@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1525">
+  <title>Denver • Game Day Weather</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="mountains" aria-hidden="true"><div class="ridge-back"></div><div class="ridge-front"></div></div>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">D<span>↗</span></div>
+        <div><div class="eyebrow">THE MILE HIGH DESKTOP</div><div class="brand-name">DENVER <span>GAME DAY</span></div></div>
+      </div>
+      <div class="toolbar">
+        <span class="status" id="feedStatus"><span class="status-dot"></span><span id="feedText">CONNECTING</span></span>
+        <button class="refresh-btn" id="refreshButton" type="button" title="Refresh live feeds" aria-label="Refresh live feeds">↻</button>
+        <div class="clock-block"><div class="clock" id="clock">--:--</div><div class="clock-date" id="date">DENVER, COLORADO</div></div>
+      </div>
+      <section class="ttt-panel" id="ticTacToe" aria-label="Tic tac toe mini game">
+        <div class="ttt-head"><span class="ttt-heading"><span class="ttt-heading-mark">✳</span> TIC TAC TOE</span><button id="tttReset" class="ttt-reset" type="button" aria-label="Start a new tic tac toe game">↻ NEW</button></div>
+        <div class="ttt-content">
+          <div class="ttt-board" role="group" aria-label="Tic tac toe board">
+            <button type="button" class="ttt-square" data-cell="0" aria-label="Top left"></button>
+            <button type="button" class="ttt-square" data-cell="1" aria-label="Top middle"></button>
+            <button type="button" class="ttt-square" data-cell="2" aria-label="Top right"></button>
+            <button type="button" class="ttt-square" data-cell="3" aria-label="Middle left"></button>
+            <button type="button" class="ttt-square" data-cell="4" aria-label="Center"></button>
+            <button type="button" class="ttt-square" data-cell="5" aria-label="Middle right"></button>
+            <button type="button" class="ttt-square" data-cell="6" aria-label="Bottom left"></button>
+            <button type="button" class="ttt-square" data-cell="7" aria-label="Bottom middle"></button>
+            <button type="button" class="ttt-square" data-cell="8" aria-label="Bottom right"></button>
+          </div>
+          <div class="ttt-side">
+            <div class="ttt-mode-hint">QUICK MATCH</div>
+            <div id="tttStatus" class="ttt-status" role="status" aria-live="polite">Your turn · X</div>
+            <div class="ttt-score"><span>YOU <b id="tttScoreX">0</b></span><span>O <b id="tttScoreO">0</b></span><span>DRAW <b id="tttScoreDraw">0</b></span></div>
+            <button id="tttMode" class="ttt-mode" type="button" aria-label="Switch game mode">VS COMPUTER ▾</button>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section class="hero" aria-label="Current Denver weather">
+      <div class="hero-left">
+        <div class="hero-kicker"><span class="map-pin">●</span> DENVER, COLORADO <span class="hero-divider">/</span> LOCAL CONDITIONS</div>
+        <h1>HOME FIELD<br><em>ADVANTAGE.</em></h1>
+        <p>One city. Three teams. Every home game.</p>
+        <div class="hero-bottom"><span class="live-indicator">●</span> <span id="lastUpdated">UPDATING LOCAL WEATHER</span></div>
+      </div>
+      <div class="weather-panel">
+        <div class="panel-heading"><span>CURRENT WEATHER</span><span class="panel-tag">DENVER NOW</span></div>
+        <div class="weather-core"><div id="currentIcon" class="main-weather-icon">☼</div><div class="temp-group"><div class="big-temp" id="currentTemp">--<span>°</span></div><div class="weather-description" id="currentDesc">Fetching conditions…</div></div></div>
+        <div class="weather-facts">
+          <div><span>FEELS LIKE</span><strong id="feelsLike">--</strong></div>
+          <div><span>WIND</span><strong id="currentWind">--</strong></div>
+          <div><span>HUMIDITY</span><strong id="humidity">--</strong></div>
+        </div>
+        <div class="weather-source">Denver metropolitan area • Fahrenheit</div>
+      </div>
+    </section>
+
+    <div class="section-title"><div><span class="section-number">01 — 03</span><h2>HOME GAME WEATHER</h2></div><div class="section-line"></div><div class="section-right">GAME-TIME CONDITIONS · DENVER</div></div>
+    <section class="teams" id="teamCards" aria-label="Denver home games">
+      <article class="team-card broncos" id="team-broncos">
+        <div class="card-top"><div class="team-identity"><div class="logo-wrap"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt="Denver Broncos logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="logo-fallback" style="display:none">D</span></div><div><div class="league">NFL <span>·</span> FOOTBALL</div><h3>BRONCOS</h3><div class="venue">EMPOWER FIELD AT MILE HIGH</div></div></div><span class="team-chevron">↗</span></div>
+        <div class="game-pair" data-team="broncos"><div class="game-box last"><div class="game-label"><span class="label-dot"></span> LAST HOME GAME</div><div class="game-content" data-field="last">Loading schedule…</div></div><div class="game-divider"></div><div class="game-box next"><div class="game-label"><span class="label-dot"></span> NEXT HOME GAME</div><div class="game-content" data-field="next">Loading schedule…</div></div></div>
+        <div class="card-foot"><span>DENVER · OUTDOOR</span><span>ORANGE / NAVY</span></div>
+      </article>
+      <article class="team-card avalanche" id="team-avalanche">
+        <div class="card-top"><div class="team-identity"><div class="logo-wrap"><img src="https://a.espncdn.com/i/teamlogos/nhl/500/col.png" alt="Colorado Avalanche logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="logo-fallback" style="display:none">A</span></div><div><div class="league">NHL <span>·</span> HOCKEY</div><h3>AVALANCHE</h3><div class="venue">BALL ARENA</div></div></div><span class="team-chevron">↗</span></div>
+        <div class="game-pair" data-team="avalanche"><div class="game-box last"><div class="game-label"><span class="label-dot"></span> LAST HOME GAME</div><div class="game-content" data-field="last">Loading schedule…</div></div><div class="game-divider"></div><div class="game-box next"><div class="game-label"><span class="label-dot"></span> NEXT HOME GAME</div><div class="game-content" data-field="next">Loading schedule…</div></div></div>
+        <div class="card-foot"><span>DENVER · INDOOR ARENA</span><span>BURGUNDY / BLUE</span></div>
+      </article>
+      <article class="team-card nuggets" id="team-nuggets">
+        <div class="card-top"><div class="team-identity"><div class="logo-wrap"><img src="https://a.espncdn.com/i/teamlogos/nba/500/den.png" alt="Denver Nuggets logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="logo-fallback" style="display:none">N</span></div><div><div class="league">NBA <span>·</span> BASKETBALL</div><h3>NUGGETS</h3><div class="venue">BALL ARENA</div></div></div><span class="team-chevron">↗</span></div>
+        <div class="game-pair" data-team="nuggets"><div class="game-box last"><div class="game-label"><span class="label-dot"></span> LAST HOME GAME</div><div class="game-content" data-field="last">Loading schedule…</div></div><div class="game-divider"></div><div class="game-box next"><div class="game-label"><span class="label-dot"></span> NEXT HOME GAME</div><div class="game-content" data-field="next">Loading schedule…</div></div></div>
+        <div class="card-foot"><span>DENVER · INDOOR ARENA</span><span>NAVY / GOLD</span></div>
+      </article>
+    </section>
+    <footer class="footer"><div><span class="footer-star">✳</span> BUILT FOR DENVER <span class="footer-sep">/</span> ALL TIMES IN MOUNTAIN TIME</div><div>WEATHER: OPEN-METEO <span class="footer-sep">·</span> SCHEDULES: ESPN (UNOFFICIAL) <span class="footer-sep">·</span> OUTDOOR WEATHER SHOWN FOR ALL VENUES</div></footer>
+  </main>
+  <div class="demo-banner" id="demoBanner" hidden>DESIGN PREVIEW · EXAMPLE DATA ONLY · NOT LIVE GAME OR WEATHER INFORMATION</div>
+  <script src="app.js" defer></script>
+  <script src="tictactoe.js" defer></script>
+</body>
+</html>

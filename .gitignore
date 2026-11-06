@@ -1,0 +1,20 @@
+# .NET build outputs
+**/bin/
+**/obj/
+Published/
+Published-Staging/
+*.user
+*.suo
+.vs/
+
+# Local browser/runtime and test files
+node_modules/
+*.log
+*.tmp
+
+# User configuration (saved under %LOCALAPPDATA% by the app)
+settings.json
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,175 @@
+:root{color-scheme:dark;--bg:#0b1220;--surface:rgba(22,35,53,.87);--muted:#8f9eb1;--border:rgba(166,187,216,.14);--white:#edf3fc;--gold:#f3ba63}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'Segoe UI Variable','Segoe UI',Inter,Arial,sans-serif;color:var(--white)}body{background:radial-gradient(ellipse at 72% 12%,#22354c 0%,#0c1727 37%,#080f1b 100%);overflow-x:hidden}button{font:inherit}.ambient{position:fixed;pointer-events:none;filter:blur(65px);opacity:.2;border-radius:50%}.ambient-one{width:37vw;height:37vw;top:-23vw;left:7vw;background:#9a552a}.ambient-two{width:44vw;height:36vw;bottom:-22vw;right:-4vw;background:#1e6b85}.mountains{position:fixed;inset:auto 0 0;height:34vh;pointer-events:none;overflow:hidden;opacity:.22}.ridge-back{position:absolute;inset:5% -8% -5%;background:#38536b;clip-path:polygon(0 100%,0 72%,9% 59%,16% 72%,28% 23%,37% 59%,45% 34%,53% 65%,62% 17%,75% 69%,83% 49%,100% 72%,100% 100%)}.ridge-front{position:absolute;inset:18% -7% -5%;background:#1b2c43;clip-path:polygon(0 100%,0 53%,11% 81%,23% 32%,39% 87%,50% 46%,64% 78%,78% 36%,91% 67%,100% 35%,100% 100%)}.shell{position:relative;z-index:1;max-width:2180px;margin:auto;padding:clamp(20px,2.3vw,52px) clamp(24px,3.3vw,75px) 25px;min-height:100vh;display:flex;flex-direction:column}.topbar{display:flex;justify-content:space-between;gap:28px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--border)}.brand{display:flex;align-items:center;gap:16px}.brand-mark{height:51px;width:51px;border:1px solid #8e9db3;border-radius:13px;display:grid;place-items:center;font-size:33px;font-weight:850;letter-spacing:-6px;padding-right:6px;background:#162a40}.brand-mark span{font-size:14px;align-self:start;padding-top:8px;color:#f3b66e;letter-spacing:0}.eyebrow,.league,.hero-kicker,.panel-heading,.section-number,.section-right,.game-label,.card-foot,.footer,.weather-facts span,.weather-source,.clock-date,.status{font-size:11px;letter-spacing:1.8px;font-weight:700}.eyebrow{color:#91a4ba;font-size:10px}.brand-name{font-size:23px;font-weight:900;letter-spacing:1.4px;line-height:1.35}.brand-name span{font-weight:400;color:#a5b8cd}.toolbar{display:flex;align-items:center;gap:23px}.status{display:flex;align-items:center;gap:8px;color:#8eab9f;white-space:nowrap}.status-dot,.live-indicator{color:#6fccaa}.status-dot{height:7px;width:7px;border-radius:50%;background:#6fccaa;box-shadow:0 0 9px #6fccaa}.status.offline{color:#e8bb78}.status.offline .status-dot{background:#e8bb78;box-shadow:none}.refresh-btn{border:1px solid #435469;background:#172a3e;color:#dce8f8;border-radius:9px;cursor:pointer;font-size:24px;line-height:30px;width:35px;height:35px}.refresh-btn:hover{background:#2a435d}.clock-block{text-align:right;border-left:1px solid var(--border);padding-left:23px}.clock{font-size:27px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:1px;font-weight:700}.clock-date{color:#879cb6;font-size:9px;margin-top:7px}.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(335px,455px);gap:clamp(25px,4vw,95px);align-items:center;padding:clamp(34px,4vw,75px) 0 clamp(34px,3.4vw,60px)}.hero-kicker{color:#ebba76;font-size:11px}.map-pin{font-size:9px;color:#f6bd78}.hero-divider{color:#697f96;margin:0 12px}.hero h1{font-size:clamp(40px,5.25vw,88px);font-weight:900;letter-spacing:-3.8px;line-height:1.03;margin:18px 0 14px}.hero h1 em{font-style:normal;background:linear-gradient(95deg,#ffffff,#b8cde2);background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{margin:0;font-size:clamp(14px,1.1vw,19px);letter-spacing:.2px;color:#a1b0c3}.hero-bottom{font-size:10px;letter-spacing:1.4px;font-weight:800;color:#97b0be;margin-top:38px}.live-indicator{margin-right:7px}.weather-panel{border:1px solid rgba(198,215,239,.17);border-radius:18px;background:linear-gradient(143deg,rgba(34,55,78,.86),rgba(18,32,50,.85));box-shadow:0 20px 70px rgba(0,0,0,.17);padding:23px 27px}.panel-heading{display:flex;align-items:center;justify-content:space-between;color:#c8d7e7}.panel-tag{font-size:9px;letter-spacing:1.6px;background:rgba(225,238,255,.07);border:1px solid var(--border);padding:7px 9px;border-radius:50px;color:#a2b7cb}.weather-core{display:flex;align-items:center;gap:22px;margin:18px 0 24px}.main-weather-icon{font-size:76px;line-height:1;color:#f6c778;font-weight:300;min-width:88px;text-align:center;text-shadow:0 5px 25px rgba(255,192,93,.16)}.big-temp{font-size:clamp(64px,5.4vw,91px);line-height:1.02;font-weight:650;letter-spacing:-5px;font-variant-numeric:tabular-nums}.big-temp span{font-weight:350}.weather-description{color:#c9d7e6;font-size:15px;margin-top:7px}.weather-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;border-top:1px solid var(--border);padding-top:19px}.weather-facts>div:not(:first-child){padding-left:16px;border-left:1px solid var(--border)}.weather-facts span{font-size:9px;letter-spacing:1px;display:block;color:#8fa4b8;margin-bottom:7px}.weather-facts strong{font-size:17px;font-weight:650}.weather-source{font-size:9px;letter-spacing:.3px;color:#7792ad;margin-top:19px}.section-title{display:flex;align-items:center;gap:17px;margin-bottom:17px}.section-number{color:#ecb576}.section-title h2{display:inline;margin-left:18px;font-size:15px;letter-spacing:2px;font-weight:850}.section-line{height:1px;flex:1;background:var(--border)}.section-right{color:#8295ae;font-size:9px;white-space:nowrap}.teams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(13px,1.2vw,23px)}.team-card{--accent:#ff742b;--accent-dark:rgba(255,112,36,.12);background:linear-gradient(150deg,rgba(31,44,61,.96),rgba(17,28,45,.96));border:1px solid rgba(149,173,200,.15);border-radius:15px;overflow:hidden;box-shadow:0 15px 38px rgba(0,0,0,.09);min-width:0}.team-card.avalanche{--accent:#a94369;--accent-dark:rgba(139,39,81,.2)}.team-card.nuggets{--accent:#f0bc57;--accent-dark:rgba(245,176,49,.11)}.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:19px 20px 18px;background:linear-gradient(100deg,var(--accent-dark),rgba(20,32,49,.3));border-bottom:1px solid var(--border);border-top:3px solid var(--accent)}.team-identity{display:flex;align-items:center;gap:13px;min-width:0}.logo-wrap{height:67px;width:67px;flex-shrink:0;display:grid;place-items:center;background:rgba(0,0,0,.14);border-radius:12px}.logo-wrap img{width:62px;height:62px;object-fit:contain}.logo-fallback{width:59px;height:59px;border:2px solid var(--accent);border-radius:50%;font-size:32px;font-weight:900;place-items:center;color:var(--accent)}.league{font-size:9px;color:var(--accent);letter-spacing:1.5px}.league span{color:#5c7087;padding:0 3px}.team-card h3{margin:4px 0 5px;font-size:clamp(21px,2vw,31px);line-height:1.05;font-weight:850;letter-spacing:-.5px}.venue{font-size:10px;font-weight:650;color:#a2afc1;letter-spacing:.4px}.team-chevron{color:var(--accent);font-size:20px;opacity:.85}.game-pair{padding:0 20px}.game-box{padding:19px 0 20px;min-height:159px}.game-label{font-size:9px;color:#a3b5cb;margin-bottom:14px;display:flex;align-items:center;gap:8px}.label-dot{width:6px;height:6px;display:inline-block;border-radius:50%;background:#778aa0}.game-box.next .label-dot{background:var(--accent)}.game-divider{height:1px;background:var(--border)}.game-content{font-size:13px;color:#8ca1b8}.game-date{font-size:12px;color:#8da8bf;margin-bottom:6px}.opponent{font-size:clamp(16px,1.35vw,21px);font-weight:750;letter-spacing:-.3px;color:#f1f5fc;line-height:1.18}.opponent .against{font-size:12px;color:#8b9faf;font-weight:500}.game-result{margin-top:7px;font-size:11px;font-weight:800;letter-spacing:.5px;color:#9cabbb}.game-result.win{color:#92dfba}.game-result.loss{color:#e4adad}.game-result .score{color:#e4ecf8}.game-weather{display:flex;align-items:center;gap:7px;margin-top:13px}.game-weather-icon{font-size:23px;line-height:1;color:#edbf79;min-width:25px}.game-weather strong{font-size:24px;line-height:1;font-variant-numeric:tabular-nums;color:#f3f7fd}.game-weather small{font-size:10px;color:#93a5bd;line-height:1.2}.game-weather-unavailable{color:#c8ad81;margin-top:13px;line-height:1.4;font-size:11px}.game-weather-caption{font-size:9px;color:#8399b0;margin-top:5px}.skeleton{min-height:72px;color:#92a4b8}.card-foot{background:rgba(8,15,28,.31);border-top:1px solid var(--border);padding:12px 20px;display:flex;justify-content:space-between;gap:7px;color:#7489a2;font-size:8px;letter-spacing:.65px}.footer{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:auto;padding-top:29px;color:#7890aa;font-size:9px;letter-spacing:.7px}.footer-star{color:#e9b86d;font-size:17px;vertical-align:-2px;margin-right:8px}.footer-sep{padding:0 7px;color:#536b82}.demo-banner{position:fixed;bottom:0;left:0;right:0;z-index:100;background:#f7bd59;color:#091324;font-size:11px;letter-spacing:1.2px;text-align:center;padding:8px;font-weight:900}.demo-banner[hidden]{display:none}
+@media (min-width:1850px){.team-card h3{font-size:31px}.game-box{min-height:175px}.logo-wrap{height:80px;width:80px}.logo-wrap img{height:75px;width:75px}.game-content .opponent{font-size:23px}}
+@media (max-width:1120px){.hero{grid-template-columns:minmax(0,1fr) minmax(285px,380px);gap:22px}.hero h1{font-size:50px}.logo-wrap{width:52px;height:52px}.logo-wrap img{height:47px;width:47px}.team-identity{gap:8px}.card-top,.game-pair{padding-left:14px;padding-right:14px}.team-card h3{font-size:20px}.venue{font-size:9px}.section-right{display:none}}
+@media (max-width:790px){.shell{padding:20px}.topbar{flex-wrap:wrap}.brand-name{font-size:19px}.hero{grid-template-columns:1fr;padding-top:35px}.hero h1{font-size:55px}.hero-bottom{margin-top:20px}.teams{grid-template-columns:1fr}.weather-panel{max-width:none}.team-card h3{font-size:28px}.game-pair{display:grid;grid-template-columns:1fr 1px 1fr;gap:15px}.game-divider{width:1px;height:auto}.game-box{min-height:175px}.footer{flex-wrap:wrap}.clock{font-size:21px}}
+@media (max-width:440px){.game-pair{grid-template-columns:1fr}.game-divider{width:auto;height:1px}.game-box{min-height:130px}.brand-mark{display:none}.status{font-size:9px}.toolbar{gap:11px}.clock-block{padding-left:10px}}
+
+/* ------------------------------------------------------------------------
+   No-scroll desktop layout + top-center tic tac toe (November 2026)
+   Designed for 1280x720, 1366x768, 1920x1080, and larger desktop screens.
+   ------------------------------------------------------------------------ */
+html, body { width:100%; height:100%; overflow:hidden; }
+body { min-height:0; }
+.shell {
+  width:100%; height:100vh; height:100dvh; min-height:0;
+  padding:clamp(10px,1.5vh,22px) clamp(16px,2.7vw,56px) clamp(8px,1.1vh,15px);
+  overflow:hidden;
+}
+.topbar {
+  position:relative; flex:0 0 clamp(156px,17.5vh,192px);
+  padding:20px 0 9px; align-items:flex-start; gap:12px;
+}
+.brand-mark {height:43px;width:43px;font-size:29px}
+.brand-name {font-size:20px}
+.toolbar{gap:14px}
+.clock-block{padding-left:15px}
+.clock{font-size:23px}
+.ttt-panel {
+  position:absolute; top:8px; left:50%; transform:translateX(-50%);
+  z-index:5; width:300px; height:176px; padding:10px 11px 11px;
+  border:1px solid rgba(199,218,241,.26); border-radius:14px;
+  background:linear-gradient(140deg,rgba(33,53,75,.97),rgba(12,24,41,.98));
+  box-shadow:0 12px 40px rgba(0,0,0,.29);
+}
+.ttt-head{display:flex;align-items:center;justify-content:space-between;height:22px;margin-bottom:6px}
+.ttt-heading{font-size:10px;letter-spacing:1.55px;font-weight:850;color:#e4eefc;white-space:nowrap}
+.ttt-heading-mark{color:#f0b864;margin-right:5px;font-size:12px}
+.ttt-reset{background:transparent;border:1px solid #435b78;color:#c5d8ea;border-radius:6px;cursor:pointer;padding:4px 8px;font-size:10px;font-weight:800;line-height:12px}
+.ttt-reset:hover,.ttt-mode:hover{background:#2a425e}
+.ttt-content{display:grid;grid-template-columns:124px minmax(0,1fr);gap:13px}
+.ttt-board{display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(3,38px);gap:4px;align-content:start}
+.ttt-square{border:1px solid #465d79;border-radius:6px;background:#152c45;color:#fff;cursor:pointer;font-size:25px;line-height:1;font-weight:800;display:grid;place-items:center;padding:0;transition:background 110ms}
+.ttt-square:hover:not(:disabled){background:#314e6b;border-color:#9dbbd5}
+.ttt-square:focus-visible{outline:2px solid #e8ba72;outline-offset:1px}
+.ttt-square:disabled{cursor:default}
+.ttt-square.ttt-x{color:#f2b26d}
+.ttt-square.ttt-o{color:#89cce7}
+.ttt-square.ttt-win{background:#375744;border-color:#88d5a4}
+.ttt-side{min-width:0;display:flex;flex-direction:column;gap:6px;justify-content:space-between;padding:3px 0 2px}
+.ttt-mode-hint{font-size:9px;letter-spacing:1.4px;color:#90a5be;font-weight:800}
+.ttt-status{font-size:12px;color:#e1edfc;line-height:1.18;font-weight:800;min-height:26px}
+.ttt-score{display:flex;justify-content:space-between;gap:5px;font-size:8px;color:#9db4cb;font-weight:750;white-space:nowrap}
+.ttt-score b{color:#f4f7fb;font-weight:800;margin-left:1px}
+.ttt-mode{background:#1e344d;border:1px solid #425b77;color:#e0eefa;border-radius:6px;padding:6px 4px;font-size:9px;letter-spacing:.5px;font-weight:800;cursor:pointer;white-space:nowrap}
+.hero{flex:0 0 clamp(148px,22vh,228px);min-height:0;gap:clamp(14px,3vw,55px);padding:11px 0 11px;align-items:center;grid-template-columns:minmax(0,1fr) minmax(300px,425px)}
+.hero h1{font-size:clamp(36px,min(4.4vw,6.6vh),73px);letter-spacing:-2.1px;margin:8px 0 7px;line-height:1}
+.hero p{font-size:clamp(11px,1vw,15px)}
+.hero-bottom{margin-top:13px;font-size:9px}
+.hero-kicker{font-size:9px;letter-spacing:1.15px}
+.weather-panel{padding:12px 18px;border-radius:13px;max-height:100%}
+.weather-core{margin:7px 0 9px;gap:14px}
+.main-weather-icon{min-width:70px;font-size:58px}
+.big-temp{font-size:clamp(45px,4.2vw,72px);letter-spacing:-3px}
+.weather-description{font-size:12px;margin-top:2px}
+.weather-facts{padding-top:9px}
+.weather-facts span{font-size:8px;margin-bottom:4px}
+.weather-facts strong{font-size:14px}
+.weather-source{margin-top:9px;font-size:8px}
+.panel-heading{font-size:10px}
+.panel-tag{padding:5px 8px;font-size:8px}
+.section-title{flex:0 0 28px;margin:0;gap:12px;min-height:0;align-items:center}
+.section-title h2{font-size:13px;margin-left:9px}
+.section-number{font-size:9px}
+.teams{flex:1 1 auto;min-height:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(9px,1.2vw,18px)}
+.team-card{min-height:0;display:flex;flex-direction:column}
+.card-top{flex:0 0 auto;padding:9px 13px;border-top-width:3px}
+.team-identity{gap:10px}
+.logo-wrap{width:48px;height:48px;border-radius:10px}
+.logo-wrap img{width:44px;height:44px}
+.team-card h3{font-size:clamp(18px,1.55vw,28px);margin:3px 0 3px}
+.venue{font-size:9px}
+.league{font-size:8px}
+.game-pair{padding:0 13px;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.game-box{flex:1 1 50%;min-height:0;padding:7px 0;display:flex;flex-direction:column;justify-content:center}
+.game-label{font-size:8px;letter-spacing:1.2px;margin-bottom:6px}
+.game-content{font-size:11px}
+.game-date{font-size:10px;margin-bottom:3px}
+.opponent{font-size:clamp(15px,1.2vw,20px);line-height:1.12}
+.game-result{margin-top:4px;font-size:10px}
+.game-weather{margin-top:7px;gap:5px}
+.game-weather-icon{font-size:19px;min-width:20px}
+.game-weather strong{font-size:20px}
+.game-weather small{font-size:9px}
+.game-weather-caption{font-size:8px;margin-top:4px}
+.game-weather-unavailable{margin-top:6px;font-size:10px}
+.game-divider{height:1px;width:auto;flex:0 0 1px}
+.card-foot{flex:0 0 auto;padding:7px 13px;font-size:7px}
+.footer{flex:0 0 24px;padding-top:4px;gap:12px;font-size:8px}
+.footer-star{font-size:13px;margin-right:4px}
+
+@media (max-height:850px) {
+  .topbar{flex-basis:171px;padding-top:13px}
+  .hero{flex-basis:168px}
+  .hero h1{font-size:clamp(34px,5.6vh,47px)}
+  .hero-bottom{margin-top:8px}
+  .weather-panel{padding:9px 15px}
+  .weather-core{margin:4px 0 5px}
+  .main-weather-icon{font-size:48px;min-width:55px}
+  .big-temp{font-size:49px}
+  .weather-facts{padding-top:6px}
+  .weather-source{margin-top:5px}
+  .section-title{flex-basis:25px}
+  .card-top{padding:7px 12px}
+  .logo-wrap{height:41px;width:41px}
+  .logo-wrap img{height:38px;width:38px}
+  .game-box{padding:4px 0}
+  .game-label{margin-bottom:4px}
+  .game-weather{margin-top:4px}
+  .game-weather-caption{margin-top:2px}
+  .card-foot{padding:5px 12px}
+  .footer{flex-basis:20px;font-size:7px}
+}
+@media (max-height:690px) {
+  .topbar{flex-basis:151px}
+  .ttt-panel{transform:translateX(-50%) scale(.88);transform-origin:top center}
+  .hero{flex-basis:142px;padding:5px 0}
+  .hero h1{font-size:34px;margin:4px 0}
+  .hero-bottom{margin-top:5px}
+  .weather-source{display:none}
+  .section-title{flex-basis:22px}
+  .game-box{padding:2px 0}
+  .game-label{font-size:7px;margin-bottom:2px}
+  .game-date{font-size:9px;margin-bottom:1px}
+  .opponent{font-size:14px}
+  .game-weather strong{font-size:17px}
+  .game-weather-caption{display:none}
+  .footer{flex-basis:18px}
+}
+@media (max-width:1120px) {
+  .topbar{gap:8px}
+  .brand-name{font-size:16px}
+  .eyebrow{font-size:8px}
+  .toolbar{gap:8px}
+  .status{font-size:9px;letter-spacing:.5px}
+  .clock{font-size:19px}
+  .clock-block{padding-left:9px}
+  .section-right{display:none}
+  .venue{font-size:8px}
+  .game-pair{padding:0 9px}
+  .card-top{padding-left:9px;padding-right:9px}
+  .card-foot{padding-left:9px;padding-right:9px}
+}
+@media (max-width:790px) {
+  .shell{padding:8px}
+  .topbar{flex-wrap:nowrap;gap:5px}
+  .brand-mark{display:none}
+  .brand-name{font-size:12px}
+  .toolbar{gap:5px}
+  .clock-block{display:none}
+  .status{display:none}
+  .ttt-panel{transform:translateX(-50%) scale(.72);transform-origin:top center}
+  .hero{grid-template-columns:minmax(0,1fr) minmax(225px,42%);gap:8px}
+  .hero h1{font-size:31px}
+  .hero p{font-size:10px}
+  .weather-panel{padding:6px}
+  .teams{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+  .team-card h3{font-size:14px}
+  .logo-wrap{display:none}
+  .team-chevron{display:none}
+  .game-label{letter-spacing:0;font-size:7px}
+  .opponent{font-size:12px;overflow-wrap:anywhere}
+  .game-weather small{display:none}
+  .card-foot{display:none}
+  .footer{flex-wrap:nowrap;font-size:6px;letter-spacing:0}
+}

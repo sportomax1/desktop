@@ -1,0 +1,50 @@
+name: Build Windows desktop app
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    name: Build standalone Windows x64 app
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        shell: pwsh
+        run: |
+          Get-ChildItem web -Filter *.js | ForEach-Object { node --check $_.FullName; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Test existing dashboard logic
+        run: |
+          node tests/test-dashboard.js
+          node tests/test-tictactoe.js
+      - name: Publish self-contained executable
+        shell: pwsh
+        run: |
+          dotnet publish WindowsHost/DenverFourMonitorWallpaper.csproj -c Release -r win-x64 --self-contained true -p:PublishTrimmed=false -o Published
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Copy-Item README.md Published/README.md
+      - name: Package application
+        shell: pwsh
+        run: Compress-Archive -Path Published/* -DestinationPath FourMonitorCommandCenter-win-x64.zip -Force
+      - name: Upload executable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FourMonitorCommandCenter-win-x64
+          path: FourMonitorCommandCenter-win-x64.zip
+          retention-days: 30
