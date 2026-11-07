@@ -13,7 +13,11 @@ A Windows desktop application that shows **independent live HTML dashboards behi
 | Denver Sports | Optional | Denver Broncos, Nuggets and Avalanche last/next home games and Denver weather |
 | No wallpaper | Optional | Leave the Windows background unchanged for that monitor |
 
-**No page scrolling** is designed into the wallpaper dashboards. All dashboard content fits common 1280×720, 1366×768, and 1920×1080 viewports.
+**Continuous sports ticker:** Every active dashboard (including Denver Sports) can display a 42px ESPN BottomLine-style ticker along the bottom of its wallpaper. It scrolls NFL, NBA, NHL, MLB, NCAA football and men's basketball scores from ESPN's unofficial scoreboard endpoints, prioritizing Denver/Colorado matchups, with team logos when available. It checks scores every five minutes and displays a clear offline message when data is unavailable. This is **animated ticker content**, not page scrolling. In the Control Center, use **Show scrolling sports ticker on dashboards** and the Slow/Normal/Fast speed selector, then click **Apply to monitors**. The setting applies to all active wallpaper displays and previews. To test without the Windows host, open `web/index.html?view=sports&ticker=1&tickerSpeed=80` from a local web server.
+
+The ticker is **behind regular Windows application windows**, because it is part of the wallpaper. It is not an always-on-top overlay. The ticker automatically stops moving when the operating system requests reduced motion.
+
+**No page scrolling** is designed into the primary dashboard views. The dashboard content adapts to make room for the ticker.
 
 ## Get the Windows app from GitHub
 
@@ -31,6 +35,7 @@ On Windows 10/11, with .NET 9 or 10 SDK installed, run **`Start-Here.cmd`** from
 
 ```powershell
 node tests/test-dashboard.js
+node tests/test-ticker.js
 node tests/test-tictactoe.js
 dotnet publish WindowsHost/DenverFourMonitorWallpaper.csproj -c Release -r win-x64 --self-contained true -p:PublishTrimmed=false -o Published
 ```

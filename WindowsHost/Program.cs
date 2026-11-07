@@ -36,6 +36,8 @@ internal sealed class WallpaperSettings
     public string MonitorMode { get; set; } = "all";
     public Dictionary<string, string> DashboardByDisplay { get; set; } = new();
     public bool ShowGamePanels { get; set; } = true;
+    public bool ShowSportsTicker { get; set; } = true;
+    public int SportsTickerSpeed { get; set; } = 80;
     public bool ShowControlCenterOnLaunch { get; set; } = true;
 }
 
@@ -316,7 +318,7 @@ internal sealed class WallpaperApp : Application
         });
         form.Controls.Add(heading);
 
-        var footer = new Forms.Panel { Dock = Forms.DockStyle.Bottom, Height = 148, BackColor = frameColor };
+        var footer = new Forms.Panel { Dock = Forms.DockStyle.Bottom, Height = 180, BackColor = frameColor };
         var status = new Forms.Label
         {
             Text = screens.Length + " display(s) detected  ·  Click Preview to interact with any dashboard",
@@ -346,6 +348,27 @@ internal sealed class WallpaperApp : Application
             if (gamesCheckbox.Checked != _gameVisible) ToggleGame();
         };
         footer.Controls.Add(gamesCheckbox);
+        var tickerCheckbox = new Forms.CheckBox
+        {
+            Text = "Show scrolling sports ticker on dashboards",
+            Checked = _settings.ShowSportsTicker, AutoSize = true,
+            Location = new Drawing.Point(25, 78), ForeColor = ink
+        };
+        footer.Controls.Add(tickerCheckbox);
+        footer.Controls.Add(new Forms.Label
+        {
+            Text = "Ticker speed",
+            Location = new Drawing.Point(405, 80), Size = new Drawing.Size(105, 23), ForeColor = ink
+        });
+        var tickerSpeed = new Forms.ComboBox
+        {
+            DropDownStyle = Forms.ComboBoxStyle.DropDownList,
+            Location = new Drawing.Point(516, 76), Size = new Drawing.Size(130, 29)
+        };
+        tickerSpeed.Items.AddRange(new object[] { "Slow", "Normal", "Fast" });
+        tickerSpeed.SelectedIndex = _settings.SportsTickerSpeed <= 65 ? 0 :
+            _settings.SportsTickerSpeed >= 100 ? 2 : 1;
+        footer.Controls.Add(tickerSpeed);
         var buttonPanel = new Forms.FlowLayoutPanel
         {
             Dock = Forms.DockStyle.Bottom, Height = 57, AutoScroll = false,
@@ -373,6 +396,8 @@ internal sealed class WallpaperApp : Application
             foreach (var pair in selectors)
                 if (pair.Value.SelectedIndex >= 0)
                     _settings.DashboardByDisplay[pair.Key] = DashboardKinds[pair.Value.SelectedIndex];
+            _settings.ShowSportsTicker = tickerCheckbox.Checked;
+            _settings.SportsTickerSpeed = new[] { 55, 80, 120 }[tickerSpeed.SelectedIndex < 0 ? 1 : tickerSpeed.SelectedIndex];
             SaveSettings();
             RebuildDisplays();
             status.Text = "Saved and applied to " + screens.Length + " monitor(s) at " + DateTime.Now.ToString("h:mm tt") + ".";
@@ -579,7 +604,7 @@ internal sealed class WallpaperApp : Application
             foreach (var s in Screens())
             {
                 if (DashboardFor(s) == "off") continue;
-                var wallpaper = new WallpaperWindow(s, DashboardFor(s));
+                var wallpaper = new WallpaperWindow(s, DashboardFor(s), _settings.ShowSportsTicker, _settings.SportsTickerSpeed);
                 _wallpapers.Add(wallpaper);
                 wallpaper.ShowAndAttach();
                 if (_paused) wallpaper.Hide();
@@ -596,7 +621,7 @@ internal sealed class WallpaperApp : Application
 
     private void OpenPreview(string view = "weather")
     {
-        var preview = new WallpaperWindow(null, view);
+        var preview = new WallpaperWindow(null, view, _settings.ShowSportsTicker, _settings.SportsTickerSpeed);
         _previews.Add(preview);
         preview.Closed += (_, _) => _previews.Remove(preview);
         preview.Show();
@@ -641,6 +666,8 @@ internal sealed class WallpaperWindow : Window
     private static readonly HttpClient Client = CreateClient();
     private readonly Forms.Screen? _screen;
     private readonly string _view;
+    private readonly bool _showTicker;
+    private readonly int _tickerSpeed;
     private readonly WebView2 _web;
     private bool _attached;
     private bool _webReady;
@@ -652,10 +679,12 @@ internal sealed class WallpaperWindow : Window
     internal string StatusLine => $"{_screen?.DeviceName ?? "Preview"} ({_view}): " +
         $"{(_attached ? "attached" : "not attached")}, Web: {_webStatus}, {_lastAttachment.Method}. {_lastAttachment.Detail}";
 
-    internal WallpaperWindow(Forms.Screen? screen, string view)
+    internal WallpaperWindow(Forms.Screen? screen, string view, bool showTicker, int tickerSpeed)
     {
         _screen = screen;
         _view = view;
+        _showTicker = showTicker;
+        _tickerSpeed = Math.Clamp(tickerSpeed, 40, 160);
         Title = screen == null ? "Denver Sports Wallpaper · Preview" : "Four Monitor Command Center";
         WindowStyle = screen == null ? WindowStyle.SingleBorderWindow : WindowStyle.None;
         ResizeMode = screen == null ? ResizeMode.CanResize : ResizeMode.NoResize;
@@ -770,6 +799,8 @@ internal sealed class WallpaperWindow : Window
             }
             var page = _view == "denver" ? "denver.html" :
                 "index.html?view=" + Uri.EscapeDataString(_view) + "&embedded=" + (_screen != null ? "1" : "0");
+            page += (page.Contains("?") ? "&" : "?") + "ticker=" + (_showTicker ? "1" : "0") +
+                    "&tickerSpeed=" + _tickerSpeed;
             _web.CoreWebView2.Navigate("https://denverwalls.local/" + page);
         }
         catch (Exception ex)
