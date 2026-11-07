@@ -33,6 +33,7 @@ jobs:
         run: |
           node tests/test-dashboard.js
           node tests/test-tictactoe.js
+          node tests/test-ticker.js
       - name: Publish self-contained executable
         shell: pwsh
         run: |
